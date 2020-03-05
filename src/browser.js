@@ -22,6 +22,7 @@ import { SortByName } from './sorters'
 import { isFolder } from './utils'
 import { DefaultAction } from './actions'
 
+import { Table } from 'semantic-ui-react'
 const SEARCH_RESULTS_PER_PAGE = 20
 
 function getItemProps(file, browserProps) {
@@ -707,12 +708,12 @@ class RawFileBrowser extends React.Component {
         }
 
         renderedFiles = (
-          <table cellSpacing="0" cellPadding="0">
+          <Table singleLine>
             {header}
-            <tbody>
+            <Table.Body>
               {contents}
-            </tbody>
-          </table>
+            </Table.Body>
+          </Table>
         )
         break
 

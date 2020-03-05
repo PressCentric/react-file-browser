@@ -2,6 +2,7 @@ import React from 'react'
 import ClassNames from 'classnames'
 import { DragSource, DropTarget } from 'react-dnd'
 import { NativeTypes } from 'react-dnd-html5-backend'
+import { Table } from 'semantic-ui-react'
 
 import BaseFolder, { BaseFolderConnectors } from './../base-folder.js'
 import { BaseFileConnectors } from './../base-file.js'
@@ -67,7 +68,7 @@ class RawTableFolder extends BaseFolder {
     }
 
     const folder = (
-      <tr
+      <Table.Row>
         className={ClassNames('folder', {
           pending: action,
           dragging: isDragging,
@@ -77,14 +78,14 @@ class RawTableFolder extends BaseFolder {
         onClick={this.handleFolderClick}
         onDoubleClick={this.handleFolderDoubleClick}
       >
-        <td className="name">
+        <Table.Cell className="name">
           <div style={{ paddingLeft: (depth * 16) + 'px' }}>
             {draggable}
           </div>
-        </td>
-        <td />
-        <td />
-      </tr>
+        </Table.Cell>
+        <Table.Cell />
+        <Table.Cell />
+      </Table.Row>
     )
 
     return this.connectDND(folder)

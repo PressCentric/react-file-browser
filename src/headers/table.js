@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import ClassNames from 'classnames'
+import { Table } from 'semantic-ui-react'
 
 import { DropTarget } from 'react-dnd'
 import { NativeTypes } from 'react-dnd-html5-backend'
@@ -29,16 +30,13 @@ class RawTableHeader extends React.Component {
 
   render() {
     const header = (
-      <tr
-        className={ClassNames('folder', {
-          dragover: this.props.isOver,
-          selected: this.props.isSelected,
-        })}
-      >
-        <th>File</th>
-        <th className="size">Size</th>
-        <th className="modified">Last Modified</th>
-      </tr>
+      <Table.Header>
+        <Table.Row className={ClassNames('folder', { dragover: this.props.isOver, selected: this.props.isSelected })}>
+          <Table.HeaderCell>File</Table.HeaderCell>
+          <Table.HeaderCell>Size</Table.HeaderCell>
+          <Table.HeaderCell>Last Modified</Table.HeaderCell>
+        </Table.Row>
+      </Table.Header>
     )
 
     if (
