@@ -22,7 +22,7 @@ import { SortByName } from './sorters'
 import { isFolder } from './utils'
 import { DefaultAction } from './actions'
 
-import { Table } from 'semantic-ui-react'
+import { Table, Grid, Segment } from 'semantic-ui-react'
 const SEARCH_RESULTS_PER_PAGE = 20
 
 function getItemProps(file, browserProps) {
@@ -544,10 +544,16 @@ class RawFileBrowser extends React.Component {
     )
 
     return (
-      <div className="action-bar">
-        {filter}
-        {actions}
-      </div>
+      <Segment>
+        <Grid>
+          <Grid.Column width={10}>
+            {filter}
+          </Grid.Column>
+          <Grid.Column width={6}>
+            {actions}
+          </Grid.Column>
+        </Grid>
+      </Segment>
     )
   }
 

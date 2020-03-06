@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import { Input } from 'semantic-ui-react'
 
 class Filter extends React.Component {
   static propTypes = {
@@ -14,8 +15,8 @@ class Filter extends React.Component {
 
   render() {
     return (
-      <input
-        ref="filter"
+      <Input
+        fluid
         ref={el => { this.filterRef = el }}
         type="search"
         placeholder="Filter files"

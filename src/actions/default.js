@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Button, Popup } from 'semantic-ui-react'
 
 const Actions = (props) => {
   const {
@@ -58,120 +59,103 @@ const Actions = (props) => {
       )
     } else {
       if (isFolder && canCreateFolder && !nameFilter) {
-        actions.push(
-          <li key="action-add-folder">
-            <a
-              onClick={onCreateFolder}
-              href="#"
-              role="button"
-            >
-              {icons.Folder}
-              &nbsp;Add Subfolder
-            </a>
-          </li>
-        )
+        actions.push(<Popup inverted content="Add Subfolder" trigger={<Button primary icon={'folder'} onClick={onCreateFolder} />} />)
       }
 
       let itemsWithoutKeyDerived = selectedItems.find(item => !item.keyDerived)
       if (!itemsWithoutKeyDerived && !isFolder && canRenameFile && selectedItems.length === 1) {
-        actions.push(
-          <li key="action-rename">
-            <a
-              onClick={onRenameFile}
-              href="#"
-              role="button"
-            >
-              {icons.Rename}
-              &nbsp;Rename
-            </a>
-          </li>
-        )
+        actions.push(<Popup inverted content="Rename" trigger={<Button primary icon={'pencil alternate'} onClick={onRenameFile} />} />)
+        // actions.push(
+        //   <li key="action-rename">
+        //     <a
+        //       onClick={onRenameFile}
+        //       href="#"
+        //       role="button"
+        //     >
+        //       {icons.Rename}
+        //       &nbsp;Rename
+        //     </a>
+        //   </li>
+        // )
       } else if (!itemsWithoutKeyDerived && isFolder && canRenameFolder) {
-        actions.push(
-          <li key="action-rename">
-            <a
-              onClick={onRenameFolder}
-              href="#"
-              role="button"
-            >
-              {icons.Rename}
-              &nbsp;Rename
-            </a>
-          </li>
-        )
+        actions.push(<Popup inverted content="Rename" trigger={<Button primary icon={'pencil alternate'} onClick={onRenameFolder} />} />)
+        // actions.push(
+        //   <li key="action-rename">
+        //     <a
+        //       onClick={onRenameFolder}
+        //       href="#"
+        //       role="button"
+        //     >
+        //       {icons.Rename}
+        //       &nbsp;Rename
+        //     </a>
+        //   </li>
+        // )
       }
 
       if (!itemsWithoutKeyDerived && !isFolder && canDeleteFile) {
-        actions.push(
-          <li key="action-delete">
-            <a
-              onClick={onDeleteFile}
-              href="#"
-              role="button"
-            >
-              {icons.Delete}
-              &nbsp;Delete
-            </a>
-          </li>
-        )
+        actions.push(<Popup content="Delete" trigger={<Button color={'red'} icon={'trash'} onClick={onDeleteFile} />} />)
+        // actions.push(
+        //   <li key="action-delete">
+        //     <a
+        //       onClick={onDeleteFile}
+        //       href="#"
+        //       role="button"
+        //     >
+        //       {icons.Delete}
+        //       &nbsp;Delete
+        //     </a>
+        //   </li>
+        // )
       } else if (!itemsWithoutKeyDerived && isFolder && canDeleteFolder) {
-        actions.push(
-          <li key="action-delete">
-            <a
-              onClick={onDeleteFolder}
-              href="#"
-              role="button"
-            >
-              {icons.Delete}
-              &nbsp;Delete
-            </a>
-          </li>
-        )
+        actions.push(<Popup content="Delete" trigger={<Button color={'red'} icon={'trash'} onClick={onDeleteFolder} />} />)
+        // actions.push(
+        //   <li key="action-delete">
+        //     <a
+        //       onClick={onDeleteFolder}
+        //       href="#"
+        //       role="button"
+        //     >
+        //       {icons.Delete}
+        //       &nbsp;Delete
+        //     </a>
+        //   </li>
+        // )
       }
 
       if (!isFolder && canDownloadFile) {
-        actions.push(
-          <li key="action-download">
-            <a
-              onClick={onDownloadFile}
-              href="#"
-              role="button"
-            >
-              {icons.Download}
-              &nbsp;Download
-            </a>
-          </li>
-        )
+        actions.push(<Popup content="Download" trigger={<Button icon={'download'} onClick={onDownloadFile} />} />)
+        // actions.push(
+        //   <li key="action-download">
+        //     <a
+        //       onClick={onDownloadFile}
+        //       href="#"
+        //       role="button"
+        //     >
+        //       {icons.Download}
+        //       &nbsp;Download
+        //     </a>
+        //   </li>
+        // )
       }
 
-      if (actions.length) {
-        actions = (<ul className="item-actions">{actions}</ul>)
-      } else {
-        actions = (<div className="item-actions">&nbsp;</div>)
-      }
+      // if (actions.length) {
+      //   actions = (<ul className="item-actions">{actions}</ul>)
+      // } else {
+      //   actions = (<div className="item-actions">&nbsp;</div>)
+      // }
     }
   } else {
     // Nothing selected: We're in the 'root' folder. Only allowed action is adding a folder.
     if (canCreateFolder && !nameFilter) {
-      actions.push(
-        <li key="action-add-folder">
-          <a
-            onClick={onCreateFolder}
-            href="#"
-            role="button"
-          >
-            {icons.Folder}
-            &nbsp;Add Folder
-          </a>
-        </li>
-      )
+      actions.push(<Popup inverted content="Add new folder" trigger={<Button primary icon={'folder'} onClick={onCreateFolder} />} />)
     }
 
-    if (actions.length) {
-      actions = (<ul className="item-actions">{actions}</ul>)
-    } else {
-      actions = (<div className="item-actions">&nbsp;</div>)
-    }
+    // if (actions.length) {
+    //   actions = (<ul className="item-actions">{actions}</ul>)
+    // } else {
+    //   actions = (<div className="item-actions">&nbsp;</div>)
+    // }
   }
 
   return actions
