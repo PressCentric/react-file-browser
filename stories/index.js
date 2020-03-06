@@ -1,3 +1,4 @@
+import 'semantic-ui-css/semantic.css'
 import React from 'react'
 import Moment from 'moment'
 import { storiesOf } from '@storybook/react'
@@ -7,7 +8,7 @@ import './stories'
 
 const files = [
   {
-    key: 'animals/',
+    key: 'animals/111/222/333',
     modified: +Moment().subtract(1, 'hours'),
     size: 0,
   },

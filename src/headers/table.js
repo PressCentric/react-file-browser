@@ -29,25 +29,13 @@ class RawTableHeader extends React.Component {
   }
 
   render() {
-    const header = (
-      <Table.Header>
-        <Table.Row className={ClassNames('folder', { dragover: this.props.isOver, selected: this.props.isSelected })}>
-          <Table.HeaderCell>File</Table.HeaderCell>
-          <Table.HeaderCell>Size</Table.HeaderCell>
-          <Table.HeaderCell>Last Modified</Table.HeaderCell>
-        </Table.Row>
-      </Table.Header>
+    return (
+      <Table.Row>
+        <Table.HeaderCell>File</Table.HeaderCell>
+        <Table.HeaderCell>Size</Table.HeaderCell>
+        <Table.HeaderCell>Last Modified</Table.HeaderCell>
+      </Table.Row>
     )
-
-    if (
-      typeof this.props.browserProps.createFiles === 'function' ||
-      typeof this.props.browserProps.moveFile === 'function' ||
-      typeof this.props.browserProps.moveFolder === 'function'
-    ) {
-      return this.props.connectDropTarget(header)
-    } else {
-      return header
-    }
   }
 }
 

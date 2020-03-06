@@ -666,16 +666,16 @@ class RawFileBrowser extends React.Component {
         if (!contents.length) {
           if (this.state.nameFilter) {
             contents = (<tr>
-              <td colSpan="100">
+              <Table.Cell colSpan="100">
                 No files matching "{this.state.nameFilter}".
-              </td>
+              </Table.Cell>
             </tr>)
           } else {
-            contents = (<tr>
-              <td colSpan="100">
+            contents = (<Table.Row>
+              <Table.Cell colSpan="100">
                 {this.props.noFilesMessage}
-              </td>
-            </tr>)
+              </Table.Cell>
+            </Table.Row>)
           }
         } else {
           if (this.state.nameFilter) {
@@ -683,14 +683,14 @@ class RawFileBrowser extends React.Component {
             contents = contents.slice(0, this.state.searchResultsShown)
             if (numFiles > contents.length) {
               contents.push(<tr key="show-more">
-                <td colSpan="100">
+                <Table.Cell colSpan="100">
                   <a
                     onClick={this.handleShowMoreClick}
                     href="#"
                   >
                     Show more results
                   </a>
-                </td>
+                </Table.Cell>
               </tr>)
             }
           }
@@ -698,12 +698,12 @@ class RawFileBrowser extends React.Component {
 
         if (this.props.headerRenderer) {
           header = (
-            <thead>
+            <Table.Header>
               <this.props.headerRenderer
                 {...headerProps}
                 {...this.props.headerRendererProps}
               />
-            </thead>
+            </Table.Header>
           )
         }
 

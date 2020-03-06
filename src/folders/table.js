@@ -1,11 +1,11 @@
 import React from 'react'
 import ClassNames from 'classnames'
-import { DragSource, DropTarget } from 'react-dnd'
-import { NativeTypes } from 'react-dnd-html5-backend'
+// import { DragSource, DropTarget } from 'react-dnd'
+// import { NativeTypes } from 'react-dnd-html5-backend'
 import { Table } from 'semantic-ui-react'
 
 import BaseFolder, { BaseFolderConnectors } from './../base-folder.js'
-import { BaseFileConnectors } from './../base-file.js'
+// import { BaseFileConnectors } from './../base-file.js'
 
 class RawTableFolder extends BaseFolder {
   render() {
@@ -58,46 +58,29 @@ class RawTableFolder extends BaseFolder {
       )
     }
 
-    let draggable = (
-      <div>
-        {name}
-      </div>
-    )
-    if (typeof browserProps.moveFile === 'function') {
-      draggable = connectDragPreview(draggable)
-    }
-
-    const folder = (
-      <Table.Row>
+    return (
+      <Table.Row
         className={ClassNames('folder', {
           pending: action,
-          dragging: isDragging,
-          dragover: isOver,
           selected: isSelected,
         })}
         onClick={this.handleFolderClick}
         onDoubleClick={this.handleFolderDoubleClick}
       >
-        <Table.Cell className="name">
-          <div style={{ paddingLeft: (depth * 16) + 'px' }}>
-            {draggable}
-          </div>
-        </Table.Cell>
+        <Table.Cell className="name">{name}</Table.Cell>
         <Table.Cell />
         <Table.Cell />
       </Table.Row>
     )
-
-    return this.connectDND(folder)
   }
 }
 
-@DragSource('folder', BaseFolderConnectors.dragSource, BaseFolderConnectors.dragCollect)
-@DropTarget(
-  ['file', 'folder', NativeTypes.FILE],
-  BaseFileConnectors.targetSource,
-  BaseFileConnectors.targetCollect,
-)
+// @DragSource('folder', BaseFolderConnectors.dragSource, BaseFolderConnectors.dragCollect)
+// @DropTarget(
+//   ['file', 'folder', NativeTypes.FILE],
+//   BaseFileConnectors.targetSource,
+//   BaseFileConnectors.targetCollect,
+// )
 class TableFolder extends RawTableFolder {}
 
 export default TableFolder
