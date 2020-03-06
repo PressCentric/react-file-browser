@@ -671,14 +671,14 @@ class RawFileBrowser extends React.Component {
       case 'table':
         if (!contents.length) {
           if (this.state.nameFilter) {
-            contents = (<tr>
-              <Table.Cell colSpan="100">
+            contents = (<Table.Row>
+              <Table.Cell>
                 No files matching "{this.state.nameFilter}".
               </Table.Cell>
-            </tr>)
+            </Table.Row>)
           } else {
             contents = (<Table.Row>
-              <Table.Cell colSpan="100">
+              <Table.Cell>
                 {this.props.noFilesMessage}
               </Table.Cell>
             </Table.Row>)
@@ -688,8 +688,8 @@ class RawFileBrowser extends React.Component {
             const numFiles = contents.length
             contents = contents.slice(0, this.state.searchResultsShown)
             if (numFiles > contents.length) {
-              contents.push(<tr key="show-more">
-                <Table.Cell colSpan="100">
+              contents.push(<Table.Row key="show-more">
+                <Table.Cell>
                   <a
                     onClick={this.handleShowMoreClick}
                     href="#"
@@ -697,7 +697,7 @@ class RawFileBrowser extends React.Component {
                     Show more results
                   </a>
                 </Table.Cell>
-              </tr>)
+              </Table.Row>)
             }
           }
         }

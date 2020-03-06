@@ -59,12 +59,12 @@ const Actions = (props) => {
       )
     } else {
       if (isFolder && canCreateFolder && !nameFilter) {
-        actions.push(<Popup inverted content="Add Subfolder" trigger={<Button primary icon={'folder'} onClick={onCreateFolder} />} />)
+        actions.push(<Popup key={'add-sub-folder'} inverted content="Add Subfolder" trigger={<Button primary icon={'folder'} onClick={onCreateFolder} />} />)
       }
 
       let itemsWithoutKeyDerived = selectedItems.find(item => !item.keyDerived)
       if (!itemsWithoutKeyDerived && !isFolder && canRenameFile && selectedItems.length === 1) {
-        actions.push(<Popup inverted content="Rename" trigger={<Button primary icon={'pencil alternate'} onClick={onRenameFile} />} />)
+        actions.push(<Popup key={'rename-file'} inverted content="Rename" trigger={<Button primary icon={'pencil alternate'} onClick={onRenameFile} />} />)
         // actions.push(
         //   <li key="action-rename">
         //     <a
@@ -78,7 +78,7 @@ const Actions = (props) => {
         //   </li>
         // )
       } else if (!itemsWithoutKeyDerived && isFolder && canRenameFolder) {
-        actions.push(<Popup inverted content="Rename" trigger={<Button primary icon={'pencil alternate'} onClick={onRenameFolder} />} />)
+        actions.push(<Popup key={'rename-folder'} inverted content="Rename" trigger={<Button primary icon={'pencil alternate'} onClick={onRenameFolder} />} />)
         // actions.push(
         //   <li key="action-rename">
         //     <a
@@ -94,7 +94,7 @@ const Actions = (props) => {
       }
 
       if (!itemsWithoutKeyDerived && !isFolder && canDeleteFile) {
-        actions.push(<Popup content="Delete" trigger={<Button color={'red'} icon={'trash'} onClick={onDeleteFile} />} />)
+        actions.push(<Popup key={'delete-file'} content="Delete" trigger={<Button color={'red'} icon={'trash'} onClick={onDeleteFile} />} />)
         // actions.push(
         //   <li key="action-delete">
         //     <a
@@ -108,7 +108,7 @@ const Actions = (props) => {
         //   </li>
         // )
       } else if (!itemsWithoutKeyDerived && isFolder && canDeleteFolder) {
-        actions.push(<Popup content="Delete" trigger={<Button color={'red'} icon={'trash'} onClick={onDeleteFolder} />} />)
+        actions.push(<Popup key={'delete-folder'} content="Delete" trigger={<Button color={'red'} icon={'trash'} onClick={onDeleteFolder} />} />)
         // actions.push(
         //   <li key="action-delete">
         //     <a
@@ -124,7 +124,7 @@ const Actions = (props) => {
       }
 
       if (!isFolder && canDownloadFile) {
-        actions.push(<Popup content="Download" trigger={<Button icon={'download'} onClick={onDownloadFile} />} />)
+        actions.push(<Popup key={'download-folder'} content="Download" trigger={<Button icon={'download'} onClick={onDownloadFile} />} />)
         // actions.push(
         //   <li key="action-download">
         //     <a
@@ -148,7 +148,7 @@ const Actions = (props) => {
   } else {
     // Nothing selected: We're in the 'root' folder. Only allowed action is adding a folder.
     if (canCreateFolder && !nameFilter) {
-      actions.push(<Popup inverted content="Add new folder" trigger={<Button primary icon={'folder'} onClick={onCreateFolder} />} />)
+      actions.push(<Popup key={'add-new-folder'} inverted content="Add new folder" trigger={<Button primary icon={'folder'} onClick={onCreateFolder} />} />)
     }
 
     // if (actions.length) {

@@ -7,6 +7,8 @@ import { NativeTypes } from 'react-dnd-html5-backend'
 import BaseFile, { BaseFileConnectors } from './../base-file.js'
 import { fileSize } from './utils.js'
 
+import { Table } from 'semantic-ui-react'
+
 class RawTableFile extends BaseFile {
   render() {
     const {
@@ -59,39 +61,37 @@ class RawTableFile extends BaseFile {
       )
     }
 
-    let draggable = (
-      <div>
-        {name}
-      </div>
-    )
-    if (typeof browserProps.moveFile === 'function') {
-      draggable = connectDragPreview(draggable)
-    }
+    // let draggable = (
+    //   <div>
+    //     {name}
+    //   </div>
+    // )
+    // if (typeof browserProps.moveFile === 'function') {
+    //   draggable = connectDragPreview(draggable)
+    // }
 
     let row = (
-      <tr
+      <Table.Row
+        positive={isSelected}
         className={ClassNames('file', {
           pending: action,
-          dragging: isDragging,
-          dragover: isOver,
+          // dragging: isDragging,
+          // dragover: isOver,
           selected: isSelected,
         })}
         onClick={this.handleItemClick}
         onDoubleClick={this.handleItemDoubleClick}
       >
-        <td className="name">
-          <div style={{ paddingLeft: (depth * 16) + 'px' }}>
-            {draggable}
-          </div>
-        </td>
-        <td className="size">{fileSize(size)}</td>
-        <td className="modified">
+        <Table.Cell className="name"><div style={{ paddingLeft: (depth * 20) + 'px' }}>{name}</div></Table.Cell>
+        <Table.Cell className="size">{fileSize(size)}</Table.Cell>
+        <Table.Cell className="modified">
           {typeof modified === 'undefined' ? '-' : Moment(modified, 'x').fromNow()}
-        </td>
-      </tr>
+        </Table.Cell>
+      </Table.Row>
     )
 
-    return this.connectDND(row)
+    // return this.connectDND(row)
+    return row
   }
 }
 

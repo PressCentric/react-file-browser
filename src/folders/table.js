@@ -60,6 +60,7 @@ class RawTableFolder extends BaseFolder {
 
     return (
       <Table.Row
+        positive={isSelected}
         className={ClassNames('folder', {
           pending: action,
           selected: isSelected,
@@ -67,7 +68,7 @@ class RawTableFolder extends BaseFolder {
         onClick={this.handleFolderClick}
         onDoubleClick={this.handleFolderDoubleClick}
       >
-        <Table.Cell className="name">{name}</Table.Cell>
+        <Table.Cell className="name"><div style={{ paddingLeft: (depth * 20) + 'px' }}>{name}</div></Table.Cell>
         <Table.Cell />
         <Table.Cell />
       </Table.Row>
