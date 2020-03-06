@@ -1,6 +1,6 @@
 {
   "name": "presscentric-react-file-browser",
-  "version": "1.8.7",
+  "version": "1.8.8",
   "description": "Folder based file browser given a flat keyed list of objects, powered by React.",
   "main": "index.js",
   "scripts": {
