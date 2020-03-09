@@ -8,8 +8,8 @@ class Filter extends React.Component {
     updateFilter: PropTypes.func,
   }
 
-  handleFilterChange = (event) => {
-    const newValue = this.filterRef.value
+  handleFilterChange = (e) => {
+    const newValue = e.target.value
     this.props.updateFilter(newValue)
   }
 
@@ -17,7 +17,6 @@ class Filter extends React.Component {
     return (
       <Input
         fluid
-        ref={el => { this.filterRef = el }}
         type="search"
         placeholder="Filter files"
         value={this.props.value}

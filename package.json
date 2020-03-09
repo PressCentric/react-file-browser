@@ -1,6 +1,6 @@
 {
   "name": "presscentric-react-file-browser",
-  "version": "1.8.8",
+  "version": "1.8.9",
   "description": "Folder based file browser given a flat keyed list of objects, powered by React.",
   "main": "index.js",
   "scripts": {
@@ -35,7 +35,9 @@
     "prop-types": "^15.7.2",
     "react-dnd": "^2.1.4",
     "react-dnd-html5-backend": "^2.1.2",
-    "semantic-ui-react": "^0.88.2"
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.88.2",
+    "yarn": "^1.22.4"
   },
   "peerDependencies": {
     "react": "0.14.x || 15.x || 16.x",

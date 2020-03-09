@@ -38,7 +38,6 @@ class RawTableFolder extends BaseFolder {
             {icon}
             <input
               type="text"
-              ref={el => { this.newNameRef = el }}
               value={this.state.newName}
               onChange={this.handleNewNameChange}
               onBlur={this.handleCancelEdit}

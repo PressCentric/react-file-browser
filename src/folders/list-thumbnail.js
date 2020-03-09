@@ -38,7 +38,6 @@ class RawListThumbnailFolder extends BaseFolder {
           <form className="renaming" onSubmit={this.handleRenameSubmit}>
             <input
               type="text"
-              ref={el => { this.newNameRef = el }}
               value={this.state.newName}
               onChange={this.handleNewNameChange}
               onBlur={this.handleCancelEdit}
